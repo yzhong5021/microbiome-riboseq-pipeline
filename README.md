@@ -21,6 +21,7 @@ For a presentation of major results, see [presentations/project_presentation.pdf
 - Preprocessing: adapter trimming with Cutadapt, rRNA removal with SortMeRNA (SILVA v138.2 SSU and LSU).
 - Read classification with multiple classifiers:
   - Centrifuger (GTDB r226, NCBI nt, RefSeq HBAV)
+  - Centrifuger (GTDB r226, NCBI nt, RefSeq HBAV)
   - Kraken2 (RefSeq HBAV)
   - DIAMOND (NCBI nr, UniRef100)
   - Parameters can be found in [METHODS.md](METHODS.md).
@@ -37,6 +38,7 @@ Scripts and notebooks:
 - [notebooks/final_classification.ipynb](notebooks/final_classification.ipynb)
 - [scripts/rarefaction_curve.py](scripts/rarefaction_curve.py)
 - [notebooks/rarefaction.ipynb](notebooks/rarefaction.ipynb)
+- [notebooks/rarefaction.ipynb](notebooks/rarefaction.ipynb)
 
 ---
 
@@ -49,6 +51,8 @@ Scripts and notebooks:
 - Map to KO terms and KEGG pathways.
 - Functional scoring:
   - Aggregated KO/KEGG counts (identify population-level functional enrichment).
+  - ssGSEA-based enrichment per species (GSVA in R) (identify species-level functional enrichment).
+  - Community-level aggregated ssGSEA enrichment scores (identify common functional capabilities across species).
   - ssGSEA-based enrichment per species (GSVA in R) (identify species-level functional enrichment).
   - Community-level aggregated ssGSEA enrichment scores (identify common functional capabilities across species).
 
