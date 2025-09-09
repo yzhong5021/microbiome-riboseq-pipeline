@@ -1,6 +1,6 @@
 # Pilot Pipeline for Microbial Ribo-seq (Metaribo-seq)
 
-This repository contains the code and notebooks for a pilot study exploring the feasibility of applying ribosome profiling (Ribo-seq) to microbial soil environments. This is the **first application of Ribo-seq in this context** and currently based on a single pore-water microbiome sample.
+This repository contains the code and notebooks for a pilot study exploring the feasibility of applying ribosome profiling (Ribo-seq) to microbial soil environments. This is the first application of Ribo-seq in this context and is currently based on a single pore-water microbiome sample.
 
 For a presentation of major results, see [presentations/project_presentation.pdf](presentations/project_presentation.pdf).
 
@@ -15,33 +15,42 @@ For a presentation of major results, see [presentations/project_presentation.pdf
 ## Workflow
 
 ### 1. Taxonomic Classification
+
+![Taxonomic Classification Pipeline](docs/taxo_class_pipeline.png)
+
 - Preprocessing: adapter trimming with Cutadapt, rRNA removal with SortMeRNA (SILVA v138.2 SSU and LSU).
 - Read classification with multiple classifiers:
-  - Centrifuge (GTDB r226, NCBI nt, RefSeq HBAV)
+  - Centrifuger (GTDB r226, NCBI nt, RefSeq HBAV)
   - Kraken2 (RefSeq HBAV)
   - DIAMOND (NCBI nr, UniRef100)
   - Parameters can be found in [METHODS.md](METHODS.md).
 - Classifier comparison and aggregation.
-- Pangenome-based refinement using *ProGenomes v3* database.
-- Specificity validation via rarefaction curves and cross-pangenome alignment.
+- Pangenome-based second round of classification using the ProGenomes v3 database and Centrifuger.
+  -  ![Second Round](docs/taxo_2_pipeline.png)
+- Species specificity validation via cross-pangenome alignment.
+  -  ![Species Specificity Analysis](docs/class_spec_pipeline.png)
 
-Relevant scripts and notebooks:
+Scripts and notebooks:
 - [notebooks/basic_visualization.ipynb](notebooks/basic_visualization.ipynb)
 - [notebooks/aggregate_classification.ipynb](notebooks/aggregate_classification.ipynb)
 - [scripts/pg_reference_creation.py](scripts/pg_reference_creation.py)
 - [notebooks/final_classification.ipynb](notebooks/final_classification.ipynb)
 - [scripts/rarefaction_curve.py](scripts/rarefaction_curve.py)
+- [notebooks/rarefaction.ipynb](notebooks/rarefaction.ipynb)
 
 ---
 
 ### 2. Functional Analysis
-- Align reads to species-specific pangenomes (*Bowtie2*).
-- Annotate genes with *EggNOG-Mapper*.
+
+![Functional Analysis Pipeline](docs/func_pipeline.png)
+
+- Align reads to species-specific pangenomes (Bowtie2).
+- Annotate genes with EggNOG-Mapper.
 - Map to KO terms and KEGG pathways.
 - Functional scoring:
   - Aggregated KO/KEGG counts (identify population-level functional enrichment).
-  - ssGSEA-based enrichment per species (*GSVA in R*) (identify species-level functional enrichment).
-  - Population-level aggregated ssGSEA enrichment scores (identify common functional capabilities across species).
+  - ssGSEA-based enrichment per species (GSVA in R) (identify species-level functional enrichment).
+  - Community-level aggregated ssGSEA enrichment scores (identify common functional capabilities across species).
 
 Relevant scripts and notebooks:
 - [scripts/ko_analysis.py](scripts/ko_analysis.py)
