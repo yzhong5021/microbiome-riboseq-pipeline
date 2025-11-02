@@ -43,6 +43,4 @@ These commands are not intended for replication, since sample data is not public
 
 **Bowtie2**
 
--U <sub_fq> -x <db_prefix> \
---very-sensitive -L 15 -N 1 \
---no-unal -p 32 -S <sam_file>
+-U <sub_fq> -x <db_prefix> --very-sensitive -L 15 -N 1 --no-unal -p 32 -S <sam_file>
