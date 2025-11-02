@@ -21,7 +21,6 @@ For a presentation of major results, see [presentations/project_presentation.pdf
 - Preprocessing: adapter trimming with Cutadapt, rRNA removal with SortMeRNA (SILVA v138.2 SSU and LSU).
 - Read classification with multiple classifiers:
   - Centrifuger (GTDB r226, NCBI nt, RefSeq HBAV)
-  - Centrifuger (GTDB r226, NCBI nt, RefSeq HBAV)
   - Kraken2 (RefSeq HBAV)
   - DIAMOND (NCBI nr, UniRef100)
   - Parameters can be found in [METHODS.md](METHODS.md).
