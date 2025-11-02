@@ -30,7 +30,7 @@ For a presentation of major results, see [presentations/project_presentation.pdf
 - Species specificity validation via cross-pangenome alignment.
   -  ![Species Specificity Analysis](docs/class_spec_pipeline.png)
 
-Scripts and notebooks:
+Relevant scripts and notebooks:
 - [notebooks/basic_visualization.ipynb](notebooks/basic_visualization.ipynb)
 - [notebooks/aggregate_classification.ipynb](notebooks/aggregate_classification.ipynb)
 - [scripts/pg_reference_creation.py](scripts/pg_reference_creation.py)
